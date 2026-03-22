@@ -2,7 +2,8 @@ spring.application.name=smart-study-timer
 server.port=${PORT:8080}
 
 # H2 Database Configuration - FILE BASED (data persists)
-spring.datasource.url=jdbc:h2:file:/var/lib/tor/studytimerdb;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE
+# For local development, change the path to your preferred location
+spring.datasource.url=jdbc:h2:file:./data/studytimerdb;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE
 spring.datasource.driverClassName=org.h2.Driver
 spring.datasource.username=sa
 spring.datasource.password=
@@ -12,10 +13,10 @@ spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=false
 
-# H2 Console Configuration
-spring.h2.console.enabled=true
+# H2 Console Configuration (DISABLE IN PRODUCTION!)
+spring.h2.console.enabled=false
 spring.h2.console.path=/h2-console
-spring.h2.console.settings.web-allow-others=true 
+spring.h2.console.settings.web-allow-others=false
 
 # Logging
 logging.level.com.studytimer=INFO
